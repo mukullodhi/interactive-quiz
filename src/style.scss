@@ -5,8 +5,43 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-quiz-block-interactive-quiz {
+
+ .wp-block-quiz-block-interactive-block {
 	font-size: 1em;
 	background: #ffff001a;
 	padding: 1em;
+}
+
+.wp-block-interactive-block__question.attempted{
+	pointer-events: none;
+}
+
+.wp-block-interactive-block__question{
+	border: 1px solid #0000001a;
+	padding: 1em;
+	margin-bottom: 1em;
+	box-shadow: 0 0 10px #0000001a;
+	.quiz-block-question{
+		font-size: 1.5em;
+
+	}
+	.quiz-block-options{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.wp-block-interactive-block__option{
+			width: calc(50% - 2.5em);
+			margin-top: 1em;
+			font-size: 1em;
+			padding: 1em;
+			border: 1px solid #0000001a;
+			box-shadow: 0 0 10px #0000001a;
+		}
+		.attempted-option{
+			background: #ff00001a;
+		}
+		.attempted-option.correct{
+			background: #00ff001a;
+		}
+	}
 }
