@@ -16,5 +16,31 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
-	"viewScriptModule": "file:./view.js"
+	"viewScriptModule": "file:./view.js",
+	"attributes": {
+		"question": {
+			"type": "string"
+		},
+		"options": {
+			"type": "array",
+			"default": [
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		"correctAnswer": {
+			"type": "number",
+			"default": ""
+		},
+		"attempted": {
+			"type": "boolean",
+			"default": false
+		},
+		"attemptedAnswer": {
+			"type": "number",
+			"default": ""
+		}
+	}
 }

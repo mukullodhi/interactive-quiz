@@ -27,13 +27,45 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
-
 	return (
-		<p { ...blockProps }>
-			{ __(
-				'Interactive Quiz – hello from the editor!',
-				'interactive-quiz'
-			) }
+		<p>
+			<div>
+				<div>
+					Question:
+					<input
+						type="text"
+						value={attributes.question}
+						onChange={e => {
+							setAttributes({ question: e.target.value });
+						}}
+					/>
+				</div>
+				<div>
+					Options:
+					{attributes.options.map((option, optionIndex) => (
+						<div>
+							<input
+								type="text"
+								value={option}
+								onChange={e => {
+									const newOptions = [...attributes.options];
+									newOptions[optionIndex] = e.target.value;
+									setAttributes({ options: newOptions });
+								}}
+							/>
+							<input type="radio"
+								radioGroup='correctAnswer'
+								checked={attributes.correctAnswer === optionIndex}
+								onChange={e => {
+									if (e.target.checked) {
+										setAttributes({ correctAnswer: optionIndex });
+									}
+								}}
+							/>
+						</div>
+					))}
+				</div>
+			</div>
 		</p>
 	);
 }
